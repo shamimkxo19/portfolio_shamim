@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <style>
+    :root {
+      --primary: #8B9470;
+    }
+    .primary-bg { background-color: var(--primary); }
+    .primary-text { color: var(--primary); }
+  </style>
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <header class="primary-bg text-white fixed top-0 w-full shadow-md z-50">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold">My Portfolio</h1>
+      <ul class="flex space-x-6">
+        <li><a href="#home" class="hover:text-gray-200">Home</a></li>
+        <li><a href="#intro" class="hover:text-gray-200">Intro</a></li>
+        <li><a href="#cv" class="hover:text-gray-200">CV</a></li>
+        <li><a href="#skills" class="hover:text-gray-200">Skills</a></li>
+        <li><a href="#contact" class="hover:text-gray-200">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="h-screen flex flex-col justify-center items-center text-center bg-gray-100 pt-20" data-aos="fade-up" >
+    <h2 class="text-4xl md:text-6xl font-bold mb-4 text-white">Welcome to My Portfolio</h2>
+    <p class="text-lg md:text-xl text-white max-w-2xl ">I am a passionate developer eager to build impactful projects and share my journey.</p>
+  </section>
+
+  <!-- Intro Section -->
+  <section id="intro" class="py-16 container mx-auto px-6" data-aos="fade-right">
+    <h2 class="text-3xl font-bold mb-6 primary-text">About Me</h2>
+    <p class="text-gray-700 leading-relaxed">Hi! I'm [Your Name], a developer specializing in creating responsive and modern web applications. I enjoy learning new technologies and solving real-world problems with clean and efficient code.</p>
+  </section>
+
+  <!-- CV Section -->
+  <section id="cv" class="py-16 bg-gray-100 px-6" data-aos="zoom-in">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-6 primary-text">Curriculum Vitae</h2>
+      <p class="text-gray-700 mb-4">You can download my CV here:</p>
+      <a href="#" class="primary-bg text-white px-6 py-2 rounded-lg shadow hover:opacity-90 inline-block"><i class="fa-solid fa-file-pdf mr-2"></i>Download CV</a>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 container mx-auto px-6" data-aos="fade-left">
+    <h2 class="text-3xl font-bold mb-6 primary-text">Skills</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="p-6 border rounded-lg shadow hover:shadow-lg text-center" data-aos="flip-left">
+        <i class="fa-brands fa-html5 text-4xl primary-text mb-2"></i>
+        <h3 class="font-semibold">HTML5</h3>
+      </div>
+      <div class="p-6 border rounded-lg shadow hover:shadow-lg text-center" data-aos="flip-left">
+        <i class="fa-brands fa-css3-alt text-4xl primary-text mb-2"></i>
+        <h3 class="font-semibold">CSS3</h3>
+      </div>
+      <div class="p-6 border rounded-lg shadow hover:shadow-lg text-center" data-aos="flip-left">
+        <i class="fa-brands fa-js text-4xl primary-text mb-2"></i>
+        <h3 class="font-semibold">JavaScript</h3>
+      </div>
+      <div class="p-6 border rounded-lg shadow hover:shadow-lg text-center" data-aos="flip-left">
+        <i class="fa-brands fa-react text-4xl primary-text mb-2"></i>
+        <h3 class="font-semibold">React</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-100 px-6" data-aos="fade-up">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 primary-text">Contact Me</h2>
+      <p class="text-gray-700 mb-4">Feel free to reach out to me via phone, email, or social media.</p>
+      <p class="mb-2"><i class="fa-solid fa-phone primary-text mr-2"></i> +123 456 7890</p>
+      <p class="mb-6"><i class="fa-solid fa-envelope primary-text mr-2"></i> yourmail@example.com</p>
+
+      <div class="flex justify-center space-x-6">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/1234567890" target="_blank" class="bg-green-500 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:scale-110 transition">
+          <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" class="bg-blue-700 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:scale-110 transition">
+          <i class="fab fa-linkedin-in text-2xl"></i>
+        </a>
+        <!-- Facebook -->
+        <a href="https://facebook.com" target="_blank" class="bg-blue-600 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:scale-110 transition">
+          <i class="fab fa-facebook-f text-2xl"></i>
+        </a>
+        <!-- GitHub -->
+        <a href="https://github.com" target="_blank" class="bg-gray-900 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:scale-110 transition">
+          <i class="fab fa-github text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="primary-bg text-white py-6 mt-10">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 My Portfolio | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+#home {
+  background-image: url("/assets/img/heroBanner.1dd94d8268aa3b9ba8fa.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  color: white; /* ensures text stays visible */
+}
+
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* dark overlay */
+  z-index: 0;
+}
+
+#home > * {
+  position: relative;
+  z-index: 1;
+}
