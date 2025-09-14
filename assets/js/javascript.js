@@ -72,13 +72,14 @@ observer.observe(document.getElementById("skills"));
 
 // Animated Typing
 const el = document.getElementById('animated');
-const words = ["Shamim", "Ahmed"]; // words to cycle
-let wordIndex = 0;                 // current word in the array
-let index = 0;                     // character index
-let typing = true;                 // true = typing, false = erasing
+const words = ["Shamim", "Ahmed"]; 
+let wordIndex = 0;                 
+let index = 0;                     
+let typing = true;                 
 const typeSpeed = 250;
 const eraseSpeed = 150;
 const pause = 700;
+const emptyPause = 500; // 👈 pause on empty before new word
 
 function tick() {
   const currentWord = words[wordIndex];
@@ -86,18 +87,21 @@ function tick() {
   if (typing) {
     index++;
     if (index > currentWord.length) {
-      typing = false;               // switch to erasing
-      setTimeout(tick, pause);      // pause at full word
-      return;                        // stop this tick
+      typing = false;              
+      setTimeout(tick, pause);     
+      return;
     }
   } else {
     index--;
-    if (index <= 0) {               // fixed boundary
-      index = 0;                    // prevent negative index
-      typing = true;                // switch to typing
-      wordIndex = (wordIndex + 1) % words.length; // next word
-      setTimeout(tick, pause);      // optional pause before typing
-      return;                        // stop this tick to avoid slice(0, -1)
+    if (index < 0) {               // ✅ now allow it to go fully blank
+      index = 0;
+      el.textContent = "";         // show empty string
+      setTimeout(() => {
+        typing = true;
+        wordIndex = (wordIndex + 1) % words.length; 
+        tick();
+      }, emptyPause);
+      return;
     }
   }
 
@@ -105,7 +109,7 @@ function tick() {
   setTimeout(tick, typing ? typeSpeed : eraseSpeed);
 }
 
-// Start the animation
 setTimeout(tick, pause);
+
 
 

@@ -6,6 +6,17 @@
   --dark: #212529;
 }
 
+html, body {
+  overflow-x: hidden; /* prevent horizontal scroll */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+
 .primary-bg {
   background-color: var(--primary);
 }
@@ -38,11 +49,6 @@
   color: var(--dark);
 }
 
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  scroll-behavior: smooth;
-}
-
 .nav-scroll {
   background-color: rgba(139, 148, 112, 0.95);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -61,19 +67,11 @@ body {
   color: white;
 }
 
-/* Blinking animation shamim */
-
 @keyframes blink {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-  25%,
-  75% {
-    opacity: 0;
-  }
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
 }
+
 .animate-blink {
   animation: blink 1s step-start infinite;
 }
@@ -106,6 +104,7 @@ body {
   cursor: pointer;
 }
 
+/* Responsive Mobile Menu */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -114,20 +113,35 @@ body {
   nav ul {
     position: fixed;
     top: 70px;
-    left: -100%;
+    right: 0;
     width: 100%;
     height: calc(100vh - 70px);
     flex-direction: column;
     background-color: var(--primary);
-    transition: left 0.3s ease;
+    transition: transform 0.3s ease;
     padding-top: 2rem;
+    transform: translateX(100%); /* hide offscreen to right */
+    z-index: 1000;
   }
 
   nav ul.active {
-    left: 0;
+    transform: translateX(0); /* slide in */
   }
 
   nav ul li {
     margin: 1.5rem 0;
+    text-align: center;
   }
+}
+
+/* Make all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optional: prevent flex/grid items from overflowing */
+* {
+  box-sizing: border-box;
 }
