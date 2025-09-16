@@ -93,7 +93,7 @@ function tick() {
     }
   } else {
     index--;
-    if (index < 0) {               // ✅ now allow it to go fully blank
+    if (index < 0) {               //  now allow it to go fully blank
       index = 0;
       el.textContent = "";         // show empty string
       setTimeout(() => {
@@ -110,6 +110,44 @@ function tick() {
 }
 
 setTimeout(tick, pause);
+
+//Nav item selection Highlighter
+
+document.querySelectorAll("nav ul li a").forEach((link) => {
+  link.addEventListener("click", function () {
+    document.querySelectorAll("nav ul li a").forEach((el) => el.classList.remove("active"));
+    this.classList.add("active");
+
+    // Close mobile menu
+    navMenu.classList.remove("active");
+    hamburger.querySelector("i").classList.remove("fa-times");
+    hamburger.querySelector("i").classList.add("fa-bars");
+  });
+});
+
+// Highlight based on scroll
+const sections = document.querySelectorAll("section[id]"); // sections with IDs
+const navLinks = document.querySelectorAll("nav ul li a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 80; // adjust for navbar height
+    const sectionHeight = section.clientHeight;
+
+    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+});
 
 
 
